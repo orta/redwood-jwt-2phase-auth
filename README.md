@@ -70,6 +70,51 @@ model JWT {
 
 - `App.tsx` needs to use the new jwtAuthClient at `/web/src/networking/jwtAuthClient.ts`
 
+### Things you would need to do!
+
+The API client needs to silently handle token refreshes - here's how it works for me in my relay code - I'm sure someone knows how to port this to an Apollo link pretty trivially
+
+<details>
+  <summary>Refresh for my fetch function</summary>
+
+
+```ts
+if (user) {
+  let token = user.accessToken
+  const refresh = user.refreshToken
+
+  const { exp } = jwt_decode<JwtPayload>(token)
+
+  // Checks if access token has expired and refresh tokens before proceeding
+  if (exp * 1000 < Date.now()) {
+    const apiURL = (path: string) => `${global.RWJS_API_URL}/${path}`
+
+    // Send off the long-term JWT in order to ask for a new access token
+    const res = await fetch(apiURL("jwtRefresh"), { headers: { Authorization: `Bearer ${refresh}`, "auth-provider": "custom" } })
+    const data = await res.json()
+
+    if (res.ok) {
+      localStorage.setItem("myAppAuth", JSON.stringify(data))
+      token = data.accessToken
+
+    } else {
+      console.error("JWT refresh failed")
+      console.error(data)
+      localStorage.removeItem("myAppAuth")
+    }
+  }
+
+  if (token) {
+    // We either pass the main token of the new revised refresh token
+    headers["authorization"] = `Bearer ${token}`
+    headers["auth-provider"] = "custom"
+  }
+}
+```
+
+</details>
+
+
 ### Not in this repo
 
 - A User switcher UI. All my code is Relay, and I'm re-creating it here. You'd need to take this into account in your login screen, and inside your user dashboard.
