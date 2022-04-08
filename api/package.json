@@ -4,6 +4,10 @@
   "private": true,
   "dependencies": {
     "@redwoodjs/api": "1.0.0",
-    "@redwoodjs/graphql-server": "1.0.0"
+    "@redwoodjs/graphql-server": "1.0.0",
+    "await-to-js": "^3.0.0",
+    "bcryptjs": "^2.4.3",
+    "cuid": "^2.1.8",
+    "jsonwebtoken": "^8.5.1"
   }
 }

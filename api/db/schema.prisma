@@ -1,3 +1,6 @@
+// Update dev db, no migration: yarn rw prisma db push
+// Ready to commit: yarn rw prisma migrate dev
+
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
@@ -8,11 +11,47 @@ generator client {
   binaryTargets = "native"
 }
 
-// Define your own datamodels here and run `yarn redwood prisma migrate dev`
-// to create migrations for them and apply to your dev DB.
-// TODO: Please remove the following example:
-model UserExample {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+// The user-facing model
+
+model User {
+  id String @id @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  username String @unique
+  roles    String @default("user")
+
+  account   Account @relation(fields: [accountID], references: [id])
+  accountID String
+}
+
+// The paying entity
+
+model Account {
+  id String @id @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  email String @unique
+  // emailVerified Boolean @default(false)
+
+  hashedPassword      String
+  salt                String
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
+
+  users User[]
+  jwts  JWT[]
+}
+
+// A long-term JWT token
+
+model JWT {
+  // The ID is the actual JWT token
+  id String @id
+
+  account   Account @relation(fields: [accountID], references: [id])
+  accountID String
 }

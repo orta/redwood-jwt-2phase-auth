@@ -30,5 +30,5 @@
     "../.redwood/types/includes/all-*",
     "../.redwood/types/includes/api-*",
     "../types"
-  ]
+, "../web/src/networking/jwtAuthClient.ts"  ]
 }

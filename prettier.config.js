@@ -5,7 +5,8 @@ module.exports = {
   bracketSpacing: true,
   tabWidth: 2,
   semi: false,
-  singleQuote: true,
+  printWidth: 140,
+  singleQuote: false,
   arrowParens: 'always',
   overrides: [
     {

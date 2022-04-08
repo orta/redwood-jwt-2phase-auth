@@ -1,17 +1,23 @@
-import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
-import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
+import { AuthProvider } from "@redwoodjs/auth"
 
-import FatalErrorPage from 'src/pages/FatalErrorPage'
-import Routes from 'src/Routes'
+import { FatalErrorBoundary, RedwoodProvider } from "@redwoodjs/web"
+import { RedwoodApolloProvider } from "@redwoodjs/web/apollo"
 
-import './index.css'
+import FatalErrorPage from "src/pages/FatalErrorPage"
+import Routes from "src/Routes"
+
+import { createClientSideAuthClient } from "./networking/jwtAuthClient"
+import "./scaffold.css"
+import "./index.css"
 
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-      <RedwoodApolloProvider>
-        <Routes />
-      </RedwoodApolloProvider>
+      <AuthProvider type="custom" client={createClientSideAuthClient()}>
+        <RedwoodApolloProvider>
+          <Routes />
+        </RedwoodApolloProvider>
+      </AuthProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
 )

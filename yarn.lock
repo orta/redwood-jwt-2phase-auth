@@ -6802,6 +6802,10 @@ __metadata:
   dependencies:
     "@redwoodjs/api": 1.0.0
     "@redwoodjs/graphql-server": 1.0.0
+    await-to-js: ^3.0.0
+    bcryptjs: ^2.4.3
+    cuid: ^2.1.8
+    jsonwebtoken: ^8.5.1
   languageName: unknown
   linkType: soft
 
@@ -7228,6 +7232,13 @@ __metadata:
     fastq: ^1.6.1
     queue-microtask: ^1.1.2
   checksum: 20ca0bf216647ff09ebaa9f206cd55dbe768a72b915ad41e517223ed4595ab7ec72eeff99a5da88d47a7ecc53002424d2b4c68b09559e3ab918c296ced5100d8
+  languageName: node
+  linkType: hard
+
+"await-to-js@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "await-to-js@npm:3.0.0"
+  checksum: 1e6184cf4090acf24f6573a475901623ec25df494a3e4b9c27eab9cd4a9f1c0bdb8150c41dbb98e719fd2513dbf32ab8cb88d2ac2c2c4c2fa57024e82128a3db
   languageName: node
   linkType: hard
 
@@ -7725,6 +7736,13 @@ __metadata:
   version: 0.6.1
   resolution: "batch@npm:0.6.1"
   checksum: 925a13897b4db80d4211082fe287bcf96d297af38e26448c857cee3e095c9792e3b8f26b37d268812e7f38a589f694609de8534a018b1937d7dc9f84e6b387c5
+  languageName: node
+  linkType: hard
+
+"bcryptjs@npm:^2.4.3":
+  version: 2.4.3
+  resolution: "bcryptjs@npm:2.4.3"
+  checksum: b969467087ed7a01ff905a1c6a0c45014ec586248a448ea08370c8ed8bb314bda16a870ca23e0961d7d23bdce1a04c76fa70a9d680be814fa9ac7d8fc61870a3
   languageName: node
   linkType: hard
 
@@ -9733,6 +9751,13 @@ __metadata:
   version: 3.0.11
   resolution: "csstype@npm:3.0.11"
   checksum: 20a89e20978ce0a9e0e400582fcd4e6ca95fe11a07b2941695218704e51b428558c3016df8c9e4a9e2d7626ec8e0f7cc10126d67b32fc770d4daf7fae9c81b62
+  languageName: node
+  linkType: hard
+
+"cuid@npm:^2.1.8":
+  version: 2.1.8
+  resolution: "cuid@npm:2.1.8"
+  checksum: 6514d247c6de3e5cd32f485821365f4816ee14b777841fa717d37b7a8f791f3cb268be9e37ca54b110f6f5f625e4f0af581c3226aa14f259790539ba20fdaf61
   languageName: node
   linkType: hard
 
@@ -15537,6 +15562,13 @@ __metadata:
     jwa: ^1.4.1
     safe-buffer: ^5.0.1
   checksum: e770704533d92df358adad7d1261fdecad4d7b66fa153ba80d047e03ca0f1f73007ce5ed3fbc04d2eba09ba6e7e6e645f351e08e5ab51614df1b0aa4f384dfff
+  languageName: node
+  linkType: hard
+
+"jwt-decode@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "jwt-decode@npm:3.1.2"
+  checksum: a951547946b5e8b1d9df818152d6b1dbaf13eebb3a6e6daceedf888968f5d255959852c8188aae2c825dc9104a99d25cb6c23f25d76545d1aa0315b968b6912e
   languageName: node
   linkType: hard
 
@@ -22984,9 +23016,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:web"
   dependencies:
+    "@redwoodjs/auth": 1.0.0
     "@redwoodjs/forms": 1.0.0
     "@redwoodjs/router": 1.0.0
     "@redwoodjs/web": 1.0.0
+    jwt-decode: ^3.1.2
     prop-types: 15.8.1
     react: 17.0.2
     react-dom: 17.0.2
