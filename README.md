@@ -1,5 +1,7 @@
 # JWT 2 Phase Auth in Redwood
 
+Re: [this thread](https://community.redwoodjs.com/t/example-app-multi-user-local-jwt-authentication/3007)
+
 An example repo showing 2 factor JWT auth which works with a netflix-style account system (aka one `Account` which can have many `User`s.) Handles switching accounts, logging in via email or username.
 
 It TypeScript-ifies and builds on the work from 3nvy in in ["Local JWT Auth Implementation"](https://community.redwoodjs.com/t/local-jwt-auth-implementation/1359/7).
