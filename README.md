@@ -119,7 +119,7 @@ if (user) {
 
 ### Not in this repo
 
-- A User switcher UI. All my code is Relay, and I'm re-creating it here. You'd need to take this into account in your login screen, and inside your user dashboard.
+- A User switcher UI. All my code is Relay, and I'm not re-creating it here. You'd need to take this into account in your login screen, and inside your user dashboard.
 
 - A new user button. Same problem as above.
 
