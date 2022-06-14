@@ -12,7 +12,7 @@ This code can handle auth via cookies, headers (bearer) and embedded JSON reques
 
 There are 5 new functions in `api/src/functions`:
 
-- `jwtLogin.ts` - Handles logging in and either returns a full set of tokens or just one
+- `jwtLogin.ts` - Handles logging in and either returns a full set of tokens or just one temporary token to select users with
 - `jwtLogout.ts` - Handles logout and removing cookies
 - `jwtRefresh.ts` - Handles recycling the short term token every 30m
 - `jwtSignup.ts` - Handles the creation of a new account
